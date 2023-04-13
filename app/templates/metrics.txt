@@ -1,0 +1,36 @@
+# HELP cp4s_qradar_up Value is 1 if summary is 'successful', 0 otherwise.
+# TYPE cp4s_qradar_up gauge
+cp4s_qradar_up {{ metrics.cp4s_qradar_up }}
+# HELP cp4s_qradar_last_udpate_time_msec Last update time in msec since epoch (1970).
+# TYPE cp4s_qradar_last_udpate_time_msec gauge
+cp4s_qradar_last_udpate_time_msec {{ metrics.cp4s_qradar_last_udpate_time_msec }}
+# HELP cp4s_qradar_execution_time_ms Check execution time spent in msec.
+# TYPE cp4s_qradar_execution_time_ms gauge
+cp4s_qradar_execution_time_ms {{ metrics.cp4s_qradar_execution_time_ms }}
+# HELP cp4s_de_up Value is 1 if summary is 'successful', 0 otherwise.
+# TYPE cp4s_de_up gauge
+cp4s_de_up {{ metrics.cp4s_de_up }}
+# HELP cp4s_de_last_udpate_time_msec Last update time in msec since epoch (1970).
+# TYPE cp4s_de_last_udpate_time_msec gauge
+cp4s_de_last_udpate_time_msec {{ metrics.cp4s_de_last_udpate_time_msec }}
+# HELP cp4s_de_execution_time_ms Check execution time spent in msec.
+# TYPE cp4s_de_execution_time_ms gauge
+cp4s_de_execution_time_ms {{ metrics.cp4s_de_execution_time_ms }}
+# HELP cp4s_tii_up Value is 1 if summary is 'successful', 0 otherwise.
+# TYPE cp4s_tii_up gauge
+cp4s_tii_up {{ metrics.cp4s_tii_up }}
+# HELP cp4s_tii_last_udpate_time_msec Last update time in msec since epoch (1970).
+# TYPE cp4s_tii_last_udpate_time_msec gauge
+cp4s_tii_last_udpate_time_msec {{ metrics.cp4s_tii_last_udpate_time_msec }}
+# HELP cp4s_tii_execution_time_ms Check execution time spent in msec.
+# TYPE cp4s_tii_execution_time_ms gauge
+cp4s_tii_execution_time_ms {{ metrics.cp4s_tii_execution_time_ms }}
+# HELP cp4s_ldap_up Value is 1 if summary is 'successful', 0 otherwise.
+# TYPE cp4s_ldap_up gauge
+cp4s_ldap_up {{ metrics.cp4s_ldap_up }}
+# HELP cp4s_ldap_last_udpate_time_msec Last update time in msec since epoch (1970).
+# TYPE cp4s_ldap_last_udpate_time_msec gauge
+cp4s_ldap_last_udpate_time_msec {{ metrics.cp4s_ldap_last_udpate_time_msec }}
+# HELP cp4s_ldap_execution_time_ms Check execution time spent in msec.
+# TYPE cp4s_ldap_execution_time_ms gauge
+cp4s_ldap_execution_time_ms {{ metrics.cp4s_ldap_execution_time_ms }}

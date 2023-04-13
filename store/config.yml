@@ -1,0 +1,11 @@
+soar-config:
+  # Connect information
+  soar_server_uri: "https://cases-rest.your_cp4s_cluster"
+  soar_org_name: "your_cp4s_cases_org_name"
+  soar_api_key_id: "your_cases_key_id(not_platform_key)"
+  soar_api_key_secret: "your_cases_key_secret(not_platform_secret)"
+  validate_certs: false
+
+  # Intervals in minutes
+  healthcheck_poll_interval_mins: 5
+  healthcheck_clean_days_after: 30
