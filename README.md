@@ -6,7 +6,7 @@ This code relies on the Cloud Pak for Security Health Check Playbook running on 
 
 # Configuration
 
-Before configuring the Exporter, you need to `git clone` the project to your target machine. Then you can modify the files in the cloned project folder.
+Before configuring the Exporter, you need to `git clone` the project to your target machine. Then you can modify the files in the cloned folder.
 
 - ./store/config.yml
   - Configure the CP4S to be monitored
