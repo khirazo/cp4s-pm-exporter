@@ -23,11 +23,12 @@ RUN chmod 755 $APP_ROOT/startup.sh
 
 WORKDIR $APP_ROOT/app
 COPY ./app $APP_ROOT/app
-RUN chmod 755 $APP_ROOT/app/*.py
+RUN chmod -R 755 $APP_ROOT/app
 
 WORKDIR $APP_ROOT/store
-RUN chmod 777 $APP_ROOT/store
 COPY ./store/config.yml $APP_ROOT/store/
+RUN chmod -R 755 $APP_ROOT/store
+RUN chmod 777 $APP_ROOT/store
 
 WORKDIR $APP_ROOT/store/log
 RUN chmod 777 $APP_ROOT/store/log
