@@ -44,4 +44,5 @@ RUN pip install Flask urllib3 PyYAML resilient
 
 USER $APP_USER_NAME
 WORKDIR $APP_ROOT/app
+ENV HOME $APP_ROOT/app
 CMD ["/opt/app-root/startup.sh"]
