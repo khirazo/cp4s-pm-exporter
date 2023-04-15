@@ -27,7 +27,7 @@
 */10 * * * *  echo `date` "cron is alive" >> /opt/app-root/store/log/app.log 2>&1
 
 # invoke healthcheck case creator on every 6 hours
-0 */6 * * *  /opt/app-root/app/case_creator.py
+0 */6 * * *  /opt/app-root/app/case_creator.py >> /opt/app-root/store/log/app.log 2>&1
 
 # invoke healthcheck case cleanup everyday at 1:00 am
-0 1 * * *  /opt/app-root/app/case_cleanup.py
+0 1 * * *  /opt/app-root/app/case_cleanup.py >> /opt/app-root/store/log/app.log 2>&1
