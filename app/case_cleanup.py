@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/opt/app-root/bin/python
 '''
 Created on 2023/04/12
 
