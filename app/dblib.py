@@ -37,11 +37,18 @@ def update_info(data_dict_list):
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
-    for item in data_dict_list:
-        cur.execute("REPLACE INTO {} values({}, '{}', '{}', '{}', {}, {})"
-                    .format(TABLE_NAME, item.get('index'), escape_sq(item.get('name')), 
-                            escape_sq(item.get('summary')), escape_sq(item.get('content')), 
-                            item.get('execution_time_ms'), item.get('last_update_epoc_ms')))
+    if data_dict_list and len(data_dict_list) > 0:
+        for item in data_dict_list:
+            cur.execute("REPLACE INTO {} values({}, '{}', '{}', '{}', {}, {})"
+                        .format(TABLE_NAME, item.get('index'), escape_sq(item.get('name')), 
+                                escape_sq(item.get('summary')), escape_sq(item.get('content')), 
+                                item.get('execution_time_ms'), item.get('last_update_epoc_ms')))
+    else:
+        cur.execute("REPLACE INTO {} values({}, '{}', '{}', '{}', {}, {})".format(TABLE_NAME, 1, "", "", "", 0, 0))
+        cur.execute("REPLACE INTO {} values({}, '{}', '{}', '{}', {}, {})".format(TABLE_NAME, 2, "", "", "", 0, 0))
+        cur.execute("REPLACE INTO {} values({}, '{}', '{}', '{}', {}, {})".format(TABLE_NAME, 3, "", "", "", 0, 0))
+        cur.execute("REPLACE INTO {} values({}, '{}', '{}', '{}', {}, {})".format(TABLE_NAME, 4, "", "", "", 0, 0))
+        
     conn.commit()
     cur.close()
     conn.close()

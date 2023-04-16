@@ -42,7 +42,7 @@ def populate_db():
                 data.append(item)
     
         dblib.update_info(data)
-        applog.info("The metrics have been updated.")
+        applog.info("{} metrics have been updated.".format(len(data)))
         in_progress = False
 
     time = Timer(poll_interval, populate_db)
