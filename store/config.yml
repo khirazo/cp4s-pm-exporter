@@ -8,4 +8,4 @@ soar-config:
 
   # Intervals in minutes
   healthcheck_poll_interval_mins: 5
-  healthcheck_clean_days_after: 30
+  healthcheck_clean_days_after: 7
