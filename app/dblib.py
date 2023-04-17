@@ -55,51 +55,33 @@ def update_info(data_dict_list):
 
 def get_metrics():
     # get table data and create metrics dict data for Jinja template
-    metrics = {
-        'cp4s_qradar_up': 0,
-        'cp4s_qradar_last_udpate_time_msec': 0,
-        'cp4s_qradar_execution_time_ms': 0,
-        'cp4s_de_up': 0,
-        'cp4s_de_last_udpate_time_msec': 0,
-        'cp4s_de_execution_time_ms': 0,
-        'cp4s_tii_up': 0,
-        'cp4s_tii_last_udpate_time_msec': 0,
-        'cp4s_tii_execution_time_ms': 0,
-        'cp4s_ldap_up': 0,
-        'cp4s_ldap_last_udpate_time_msec': 0,
-        'cp4s_ldap_execution_time_ms': 0
-        }
+    metrics = []
 
     # check_table()
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    cur.execute('SELECT id, summary, execution_time_ms, last_update_epoc_ms FROM {}'.format(TABLE_NAME))
+    cur.execute('SELECT id, name, summary, execution_time_ms, last_update_epoc_ms FROM {}'.format(TABLE_NAME))
     data = cur.fetchall()
     cur.close()
     conn.close()
 
     if data and len(data) > 0:
-        for metric in data:
-            if metric[0] == 1:
-                # qradar
-                metrics['cp4s_qradar_up'] = 1 if metric[1] == 'successful' else 0
-                metrics['cp4s_qradar_last_udpate_time_msec'] = metric[3]
-                metrics['cp4s_qradar_execution_time_ms'] = metric[2]
-            elif metric[0] == 2:
-                # de
-                metrics['cp4s_de_up'] = 1 if metric[1] == 'successful' else 0
-                metrics['cp4s_de_last_udpate_time_msec'] = metric[3]
-                metrics['cp4s_de_execution_time_ms'] = metric[2]
-            elif metric[0] == 3:
-                # tii
-                metrics['cp4s_tii_up'] = 1 if metric[1] == 'successful' else 0
-                metrics['cp4s_tii_last_udpate_time_msec'] = metric[3]
-                metrics['cp4s_tii_execution_time_ms'] = metric[2]
-            elif metric[0] == 4:
-                # ldap
-                metrics['cp4s_ldap_up'] = 1 if metric[1] == 'successful' else 0
-                metrics['cp4s_ldap_last_udpate_time_msec'] = metric[3]
-                metrics['cp4s_ldap_execution_time_ms'] = metric[2]
+        for item in data:
+            metric = {}
+            metric['index'] = item[0]
+            metric['status'] = 1 if item[2] == 'successful' else 0
+            metric['name'] = item[1]
+            metric['last_udpate_epoc_ms'] = item[4]
+            metric['execution_time_ms'] = item[3]
+            metrics.append(metric)
+            
+    else:
+        metrics = [
+            {'index': 1, 'status': 0},
+            {'index': 2, 'status': 0},
+            {'index': 3, 'status': 0},
+            {'index': 4, 'status': 0}
+            ]
 
     return metrics
 
