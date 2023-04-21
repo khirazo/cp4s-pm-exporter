@@ -26,14 +26,14 @@ COPY ./app $APP_ROOT/app
 RUN chmod -R 755 $APP_ROOT/app
 
 WORKDIR $APP_ROOT/store
-COPY ./store/config.yml $APP_ROOT/store/
+#COPY ./store/config.yml $APP_ROOT/store/
 RUN chmod -R 755 $APP_ROOT/store
 RUN chmod 777 $APP_ROOT/store
 
-WORKDIR $APP_ROOT/store/log
-RUN chmod 777 $APP_ROOT/store/log
-RUN touch $APP_ROOT/store/log/app.log
-RUN chmod 666 $APP_ROOT/store/log/app.log
+#WORKDIR $APP_ROOT/store/log
+#RUN chmod 777 $APP_ROOT/store/log
+#RUN touch $APP_ROOT/store/log/app.log
+#RUN chmod 666 $APP_ROOT/store/log/app.log
 
 # Update to the latest pip
 RUN pip install --upgrade pip
@@ -45,4 +45,4 @@ RUN pip install Flask urllib3 PyYAML resilient
 USER $APP_USER_NAME
 WORKDIR $APP_ROOT/app
 ENV HOME $APP_ROOT/app
-CMD ["/opt/app-root/startup.sh"]
+#CMD ["/opt/app-root/startup.sh"]

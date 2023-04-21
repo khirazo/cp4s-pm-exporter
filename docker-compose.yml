@@ -1,0 +1,11 @@
+version: "3"
+services:
+  cp4s-pm-exporter:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./config.yml:/opt/app-root/store/config.yml
+      - ./log:/opt/app-root/store/log
+    command: /opt/app-root/startup.sh
+    restart: unless-stopped
