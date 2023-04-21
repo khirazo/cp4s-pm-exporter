@@ -16,7 +16,7 @@ resilient_circuits_lockfile
 *.iml
 *.pem
 *.pyc
-*.log
+#*.log
 *.log.*
 *~
 *.egg-info
