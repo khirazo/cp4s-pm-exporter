@@ -26,11 +26,7 @@ Before configuring the Exporter, you need to `git clone` the project to your tar
 
 Run the following command on the same folder as the docker-compose.yml resides
 
-docker compose up -d
-
-# Running the image
-
-docker run -p 5000:5000 -d cp4s-pm-exporter:1.0.0
+`docker compose up -d`
 
 # Accessing the Exporter
 
