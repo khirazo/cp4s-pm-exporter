@@ -2,18 +2,22 @@
 
 IBM Cloud Pak for Security Prometheus Exporter.
 
-This code relies on the Cloud Pak for Security Health Check Playbook running on the CP4S Cases app (to be published sometime later).
+This code relies on the [Cloud Pak for Security Health Check Playbooks](https://github.com/khirazo/cp4s-healthcheck-playbook) running on the CP4S Cases app.
 
 # Configuration
 
-Before configuring the Exporter, you need to `git clone` the project to your target machine. Then you can modify the files in the cloned folder.
+Before configuring the Exporter, you need to `git clone` the project to your target machine.
+
+`git clone https://github.com/khirazo/cp4s-pm-exporter.git`
+
+Then you can modify the files in the cloned folder.
 
 - ./store/config.yml
   - Configure the CP4S to be monitored
     - url, keys
     - polling interval
     - cleanup target
-  - CP4S Cases app must have a specific playbook installed and configured (will be published on GitHub sometime later)
+  - CP4S Cases app [CP4S Health check Playbooks](https://github.com/khirazo/cp4s-healthcheck-playbook) must have a specific playbook installed and configured
 - ./crontab.txt
   - You can change the Health Check Case creation interval (polling interval above is just to retrieve the latest data from the past closed Case and returns the same value until the new Case is created and the metrics are updated)
 - ./Dockerfile
@@ -23,6 +27,9 @@ Before configuring the Exporter, you need to `git clone` the project to your tar
 
 
 # Running the exporter
+
+Before running, folders and files hosted on the machine mapped to the Docker container (defined at `volumes` in the docker-compose.yml) must have a necessary permissions.
+Logging *file* requires `w` permission in addition to `r`. Logging *folder* also requires `x` permission to allow the container create new log files inside.
 
 Run the following command on the same folder as the docker-compose.yml resides
 
